@@ -53,7 +53,7 @@ const useHitAndBlow = () => {
             setCurrentGuess(prev => prev.slice(0, -1))
             return
         }
-        if (/^[0-9]$/.test(key)) {
+        if (/^[0-9]$/.test(key) && !currentGuess.includes(key)) {
             if (currentGuess.length < ROW_SIZE) {
                 setCurrentGuess(prev => prev + key)
             }
