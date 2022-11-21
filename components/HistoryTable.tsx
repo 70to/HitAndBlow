@@ -36,7 +36,7 @@ const HistoryTable = (props: HistoryRowProps) => {
                                 </thead>
                                 <tbody className="divide-y divide-gray-200 bg-white">
                                 {ROWS.map((_, index) => (
-                                    <tr key={index} className="h-20">
+                                    <tr key={index} className="h-16">
                                         <td className="whitespace-nowrap pl-4 pr-3 text-xl font-medium text-gray-900 sm:pl-6">
                                             {props.histories[index]?.guess}
                                         </td>
