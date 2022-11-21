@@ -1,11 +1,18 @@
-const people = [
-    { name: '256', title: '1', email: '0' },
-    { name: '256', title: '1', email: '0' },
-    { name: '256', title: '1', email: '0' },
-    { name: '256', title: '1', email: '0' },
-]
+import React, {useMemo} from "react";
+import {ROW_SIZE} from "../constants";
 
-export default function HistoryTable() {
+interface History {
+    guess: number[];
+    hit: number;
+    blow: number;
+}
+
+type HistoryRowProps = {
+    histories: History[];
+}
+
+const HistoryTable = (props: HistoryRowProps) => {
+    const ROWS = useMemo<Array<number>>(() => new Array(ROW_SIZE).fill(0), []);
     return (
         <div>
             <div className="mt-8 flex flex-col">
@@ -15,7 +22,8 @@ export default function HistoryTable() {
                             <table className="min-w-full divide-y divide-gray-300">
                                 <thead className="bg-gray-50">
                                 <tr>
-                                    <th scope="col" className="py-3.5 pl-4 pr-3 text-xl font-semibold text-gray-900 sm:pl-6">
+                                    <th scope="col"
+                                        className="py-3.5 pl-4 pr-3 text-xl font-semibold text-gray-900 sm:pl-6">
                                         Guess
                                     </th>
                                     <th scope="col" className="px-3 py-3.5 text-xl font-semibold text-gray-900">
@@ -27,13 +35,13 @@ export default function HistoryTable() {
                                 </tr>
                                 </thead>
                                 <tbody className="divide-y divide-gray-200 bg-white">
-                                {people.map((person) => (
-                                    <tr key={person.email}>
-                                        <td className="whitespace-nowrap py-4 pl-4 pr-3  text-xl font-medium text-gray-900 sm:pl-6">
-                                            {person.name}
+                                {ROWS.map((_, index) => (
+                                    <tr key={index} className="h-20">
+                                        <td className="whitespace-nowrap pl-4 pr-3 text-xl font-medium text-gray-900 sm:pl-6">
+                                            {props.histories[index]?.guess}
                                         </td>
-                                        <td className="whitespace-nowrap px-3 py-4  text-xl text-gray-500">{person.title}</td>
-                                        <td className="whitespace-nowrap px-3 py-4  text-xl text-gray-500">{person.email}</td>
+                                        <td className="whitespace-nowrap px-3 text-xl text-gray-500">{props.histories[index]?.hit}</td>
+                                        <td className="whitespace-nowrap px-3 text-xl text-gray-500">{props.histories[index]?.blow}</td>
                                     </tr>
                                 ))}
                                 </tbody>
@@ -45,3 +53,5 @@ export default function HistoryTable() {
         </div>
     )
 }
+
+export default HistoryTable;
