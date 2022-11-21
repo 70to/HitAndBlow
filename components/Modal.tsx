@@ -7,7 +7,6 @@ type Props = {
 };
 
 const Modal : VoidFunctionComponent<Props> = ({ open, setOpen })  => {
-
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -37,16 +36,20 @@ const Modal : VoidFunctionComponent<Props> = ({ open, setOpen })  => {
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                                 <div>
                                     <div className="text-center">
-                                        <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                                        <Dialog.Title as="h3" className="text-xl font-bold leading-6 text-slate-900">
                                             遊び方
                                         </Dialog.Title>
                                         <div className="mt-4">
-                                            <p className="text-sm text-gray-500 text-left mb-2">
+                                            <p className="text-sm text-slate-500 text-left mb-2">
                                                 0~10までのランダムな3桁の数字を当てるだけのシンプルなゲームです。 7回の間に当てることができれば勝ち、できなければ負け。<br/>
                                             </p>
-                                            <p className="text-sm text-gray-500 text-left">
+                                            <p className="text-sm text-slate-500 text-left mb-2.5">
                                                 Hit → 桁の位置も数字も同じ<br/>
                                                 Blow → 桁の位置は違うけれど数字は同じ<br/>
+                                            </p>
+                                            <p className="text-sm text-slate-500 text-left">
+                                                PCのみ対応しています。<br/>
+                                                キーボードで数字を入力してEnterでGuess
                                             </p>
                                         </div>
                                     </div>
