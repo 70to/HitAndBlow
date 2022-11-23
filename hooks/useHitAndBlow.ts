@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {History} from "../types/History";
 import {three_random_number} from "../util/number";
-import {ROW_SIZE} from "../constants";
+import {DIGITS, ROW_SIZE} from "../constants";
 
 const useHitAndBlow = () => {
     const [correctNumber, setCorrectNumber] = useState<string>('')
@@ -57,7 +57,7 @@ const useHitAndBlow = () => {
             return
         }
         if (/^[0-9]$/.test(key) && !currentGuess.includes(key)) {
-            if (currentGuess.length < ROW_SIZE) {
+            if (currentGuess.length < DIGITS) {
                 setCurrentGuess(prev => prev + key)
             }
         }

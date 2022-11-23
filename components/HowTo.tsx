@@ -1,6 +1,6 @@
 import {Fragment, useCallback, useState} from 'react'
 import {Dialog, Transition} from "@headlessui/react";
-import {NUMBER_SIZE, ROW_SIZE} from "../constants";
+import {DIGITS, ROW_SIZE} from "../constants";
 
 const HowTo = () => {
     let [isOpen, setIsOpen] = useState(true)
@@ -51,7 +51,7 @@ const HowTo = () => {
                                                 </Dialog.Title>
                                                 <div className="mt-4">
                                                     <p className="text-sm text-slate-500 text-left mb-2">
-                                                        0~10までのランダムな{NUMBER_SIZE}桁の数字を当てるだけのシンプルなゲームです。 {ROW_SIZE}回の間に当てることができれば勝ち、できなければ負け。<br/>
+                                                        0~10までのランダムな{DIGITS}桁の数字を当てるだけのシンプルなゲームです。 {ROW_SIZE}回の間に当てることができれば勝ち、できなければ負け。<br/>
                                                     </p>
                                                     <p className="text-sm text-slate-500 text-left mb-2.5">
                                                         Hit → 桁の位置も数字も同じ<br/>
