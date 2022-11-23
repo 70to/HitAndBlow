@@ -71,8 +71,11 @@ const EndGame: VoidFunctionComponent<Props> = ({correctNumber, isCorrect, turn})
                                             }
                                         </div>
                                         <div className="mt-5 sm:mt-6">
-                                            <a href="/"
-                                               className="inline-flex w-full justify-center rounded-md border border-transparent bg-slate-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 sm:text-sm">もう一度</a>
+                                            <button
+                                                className="inline-flex w-full justify-center rounded-md border border-transparent bg-slate-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 sm:text-sm"
+                                                onClick={() => window.location.reload()}>
+                                                もう一度
+                                            </button>
                                         </div>
                                     </Dialog.Panel>
                                 </Transition.Child>
