@@ -34,17 +34,20 @@ const useHitAndBlow = () => {
         const newHistory = {guess: currentGuessArray, hit: hit, blow: blow, id: Date.now()};
         const newHistories = [...histories, newHistory];
         setHistories(newHistories);
+        setTurn(prevTurn => {
+            return prevTurn + 1
+        })
         setCurrentGuess('')
     };
 
     const handleKeyup = ({key}: { key: string; }) => {
         if (key === 'Enter') {
-            if (turn > 5) {
+            if (turn > ROW_SIZE) {
                 console.log('you used all your guesses!')
                 return
             }
             if (currentGuess.length !== 3) {
-                console.log('word must be 3 chars.')
+                console.log('number must be 3 chars.')
                 return
             }
             handleGuessNumbers()
@@ -60,7 +63,7 @@ const useHitAndBlow = () => {
         }
     }
 
-    return {turn, currentGuess, isCorrect, histories, handleKeyup}
+    return {correctNumber, turn, currentGuess, isCorrect, histories, handleKeyup}
 }
 
 export default useHitAndBlow
