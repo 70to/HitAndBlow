@@ -22,7 +22,7 @@ const useHitAndBlow = () => {
         let currentGuessArray: number[] = currentGuess.split('').map(Number)
         let hit = 0;
         let blow = 0;
-        for (let index: number = 0; index < 3; index++) {
+        for (let index: number = 0; index < DIGITS; index++) {
             if (correctNumberArray[index] === currentGuessArray[index]) {
                 hit++
                 continue
@@ -46,7 +46,7 @@ const useHitAndBlow = () => {
                 console.log('you used all your guesses!')
                 return
             }
-            if (currentGuess.length !== 3) {
+            if (currentGuess.length !== DIGITS) {
                 console.log('number must be 3 chars.')
                 return
             }
