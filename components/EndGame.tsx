@@ -7,7 +7,7 @@ type Props = {
     turn: number,
 };
 
-const EndGame: VoidFunctionComponent<Props> = ({correctNumber, isCorrect, turn}) => {
+const EndGame: VoidFunctionComponent<Props> = ({correctNumber, isCorrect}) => {
     let [isOpen, setIsOpen] = useState(true)
     const onOpen = useCallback(() => {
         setIsOpen(true)
