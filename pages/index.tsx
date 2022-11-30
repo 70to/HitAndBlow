@@ -12,7 +12,6 @@ export default function Home() {
     const [showModal, setShowModal] = useState(false)
     useEffect(() => {
         window.addEventListener('keyup', handleKeyup)
-        console.log('aaa')
 
         if (isCorrect) {
             setTimeout(() => setShowModal(true), 2000)
